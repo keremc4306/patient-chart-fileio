@@ -57,8 +57,8 @@ public class Operations {
             if (id == patient.getId()) {
                 patientList.remove(patient);
                 patientList.add(updated);
+                break;
             }
-            break;
         }
         saveAll(patientList, false);
     }

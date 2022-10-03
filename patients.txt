@@ -7,4 +7,4 @@
 7,Orcun,Basoglu,27,Erkek,Makine Müh
 8,Elmas,Mert,39,Kadın,Biyolog
 9,Emrullah,Kartal,36,Erkek,Cayci
-10,Pelin,Toker,28,Kadın,Bilgisayar Müh
+10,Selin,Kaya,27,Kadın,Endüstri Müh

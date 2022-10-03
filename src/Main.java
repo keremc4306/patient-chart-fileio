@@ -54,7 +54,41 @@ public class Main {
                     throw new RuntimeException(e);
                 }
             } else if (selection == 3) {
+                try {
+                    for(Patient patient : Operations.listRecords()) {
+                        System.out.println(patient);
+                    }
 
+                    System.out.print("Güncellenecek id'yi seçin: ");
+                    int id = scanner.nextInt(); scanner.nextLine();
+
+                    Patient willUpdatedPatient = Operations.getById(id);
+
+                    System.out.print("Adı (yeni): ");
+                    String name = scanner.nextLine();
+
+                    System.out.print("Soyadı (yeni): ");
+                    String surname = scanner.nextLine();
+
+                    System.out.print("Yaşı (yeni): ");
+                    int age = scanner.nextInt(); scanner.nextLine();
+
+                    System.out.print("Cinsiyeti (yeni): ");
+                    String gender = scanner.nextLine();
+
+                    System.out.print("Mesleği (yeni): ");
+                    String job = scanner.nextLine();
+
+                    willUpdatedPatient.setName(name);
+                    willUpdatedPatient.setSurname(surname);
+                    willUpdatedPatient.setAge(age);
+                    willUpdatedPatient.setGender(gender);
+                    willUpdatedPatient.setJob(job);
+
+                    Operations.update(id, willUpdatedPatient);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             } else if (selection == 4) {
                 try {
                     for (Patient patient : Operations.listRecords()) {
