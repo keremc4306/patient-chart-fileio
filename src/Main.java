@@ -42,6 +42,14 @@ public class Main {
 
                 System.out.println("\tKayıt işlemi başarılı!");
 
+            } else if (selection == 2) {
+                try {
+                    for (Patient pts : Operations.listRecords()) {
+                        System.out.println(pts);
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
         scanner.close();
