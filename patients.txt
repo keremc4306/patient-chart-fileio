@@ -1,0 +1,10 @@
+Kemal,Celiker,26,Erkek,Makine Müh
+Efe,Aslan,28,Erkek,Sosyolog
+Ayse,Kaya,33,Kadın,Ogretmen
+Elif,Demir,36,Kadın,Ekonomist
+Betul,Eker,31,Kadın,Cocuk Gelisimi Ogretmeni
+Mustafa,Cetindag,27,Erkek,Bilgisayar Müh
+Orcun,Basoglu,27,Erkek,Makine Müh
+Elmas,Mert,39,Kadın,Biyolog
+Emrullah,Kartal,36,Erkek,Cayci
+Pelin,Toker,28,Kadın,Bilgisayar Müh
