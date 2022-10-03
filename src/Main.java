@@ -38,7 +38,7 @@ public class Main {
                 Patient p = new Patient(id, name, surname, age, gender, job);
 
                 try {
-                    Operations.save(p);
+                    PatientOperations.save(p);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -47,7 +47,7 @@ public class Main {
 
             } else if (selection == 2) {
                 try {
-                    for (Patient patient : Operations.listRecords()) {
+                    for (Patient patient : PatientOperations.listRecords()) {
                         System.out.println(patient);
                     }
                 } catch (IOException e) {
@@ -55,14 +55,14 @@ public class Main {
                 }
             } else if (selection == 3) {
                 try {
-                    for(Patient patient : Operations.listRecords()) {
+                    for(Patient patient : PatientOperations.listRecords()) {
                         System.out.println(patient);
                     }
 
                     System.out.print("Güncellenecek id'yi seçin: ");
                     int id = scanner.nextInt(); scanner.nextLine();
 
-                    Patient willUpdatedPatient = Operations.getById(id);
+                    Patient willUpdatedPatient = PatientOperations.getById(id);
 
                     System.out.print("Adı (yeni): ");
                     String name = scanner.nextLine();
@@ -85,19 +85,19 @@ public class Main {
                     willUpdatedPatient.setGender(gender);
                     willUpdatedPatient.setJob(job);
 
-                    Operations.update(id, willUpdatedPatient);
+                    PatientOperations.update(id, willUpdatedPatient);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             } else if (selection == 4) {
                 try {
-                    for (Patient patient : Operations.listRecords()) {
+                    for (Patient patient : PatientOperations.listRecords()) {
                         System.out.println(patient);
                     }
                     System.out.print("Silinecek id'yi seçin: ");
                     int id = scanner.nextInt(); scanner.nextLine();
 
-                    Operations.deleteById(id);
+                    PatientOperations.deleteById(id);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

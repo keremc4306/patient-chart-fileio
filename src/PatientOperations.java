@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 
-public class Operations {
+public class PatientOperations {
     private static final File DB = new File("patients.txt");
 
     private static BufferedReader reader;
@@ -42,7 +42,7 @@ public class Operations {
     }
 
     public static Patient getById(int id) throws IOException {
-        ArrayList<Patient> patientList = Operations.listRecords();
+        ArrayList<Patient> patientList = PatientOperations.listRecords();
         for(Patient patient : patientList) {
             if (patient.getId() == id) {
                 return patient;
@@ -52,7 +52,7 @@ public class Operations {
     }
 
     public static void update(int id, Patient updated) throws IOException {
-        ArrayList<Patient> patientList = Operations.listRecords();
+        ArrayList<Patient> patientList = PatientOperations.listRecords();
         for(Patient patient : patientList) {
             if (id == patient.getId()) {
                 patientList.remove(patient);
@@ -74,7 +74,7 @@ public class Operations {
     }
 
     public static void deleteById(int id) throws IOException {
-        ArrayList<Patient> patients = Operations.listRecords();
+        ArrayList<Patient> patients = PatientOperations.listRecords();
         Patient patient = null;
         for (Patient object : patients) {
             if (id == object.getId()) {
