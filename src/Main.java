@@ -203,6 +203,9 @@ public class Main {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+            } else if (selection == 9) {
+                System.out.println("Çıkış yapıldı");
+                break;
             }
         }
         scanner.close();
