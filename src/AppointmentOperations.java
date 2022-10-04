@@ -71,4 +71,17 @@ public class AppointmentOperations {
         writer.write(allAppRecords);
         writer.close();
     }
+
+    public static void deleteByAppId(int appId) throws IOException {
+        ArrayList<Appointment> appList = AppointmentOperations.listAppRecords();
+        Appointment appointment = null;
+        for (Appointment object : appList) {
+            if (appId == object.getAppId()) {
+                appointment = object;
+                break;
+            }
+        }
+        appList.remove(appointment);
+        saveAll(appList, false);
+    }
 }

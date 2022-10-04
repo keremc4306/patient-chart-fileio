@@ -190,6 +190,19 @@ public class Main {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+            } else if (selection == 8) {
+                try {
+                    for (Appointment appointment : AppointmentOperations.listAppRecords()) {
+                        System.out.println(appointment);
+                    }
+                    System.out.print("Silinecek randevu id'yi seçin: ");
+                    int appId = scanner.nextInt(); scanner.nextLine();
+
+                    AppointmentOperations.deleteByAppId(appId);
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
         scanner.close();
