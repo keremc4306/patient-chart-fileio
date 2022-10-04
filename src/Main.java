@@ -1,4 +1,7 @@
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -10,7 +13,11 @@ public class Main {
             System.out.println("Hastaları Listele -> 2");
             System.out.println("Hasta Güncelle -> 3");
             System.out.println("Hasta Sil -> 4");
-            System.out.println("Çıkış -> 5");
+            System.out.println("Randevu Ekle -> 5");
+            System.out.println("Randevuları Listele -> 6");
+            System.out.println("Randevu Güncelle -> 7");
+            System.out.println("Randevu Sil -> 8");
+            System.out.println("Çıkış -> 9");
 
             int selection = scanner.nextInt(); scanner.nextLine();
 
@@ -102,8 +109,87 @@ public class Main {
                     throw new RuntimeException(e);
                 }
             } else if (selection == 5) {
-                System.out.println("Çıkış yapıldı");
-                break;
+                System.out.println("\tRANDEVU EKLE");
+
+                System.out.print("Randevu id: ");
+                int appId = scanner.nextInt(); scanner.nextLine();
+
+                System.out.print("Adı: ");
+                String patientName = scanner.nextLine();
+
+                System.out.print("Soyadı: ");
+                String patientSurname = scanner.nextLine();
+
+                System.out.print("Poliklinik: ");
+                String polyclinicName = scanner.nextLine();
+
+                System.out.print("Tarih: ");
+                String appDate = scanner.nextLine();
+
+                System.out.print("Başlangıç saati: ");
+                String startTime = scanner.nextLine();
+
+                System.out.print("Bitiş saati: ");
+                String endTime = scanner.nextLine();
+
+                Appointment a = new Appointment(appId, patientName, patientSurname, polyclinicName,
+                        appDate, startTime, endTime);
+
+                try {
+                    AppointmentOperations.save(a);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println("\tKayıt işlemi başarılı!");
+            } else if (selection == 6) {
+                try {
+                    for (Appointment appointment : AppointmentOperations.listAppRecords()) {
+                        System.out.println(appointment);
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (selection == 7) {
+                System.out.println("\tHASTA GÜNCELLE");
+                try {
+                    for (Appointment appointment : AppointmentOperations.listAppRecords()) {
+                        System.out.println(appointment);
+                    }
+
+                    System.out.print("Güncellenecek randevu id'yi seçin: ");
+                    int appId = scanner.nextInt();
+
+                    Appointment willUpdatedAppointment = AppointmentOperations.getByAppId(appId);
+
+                    System.out.print("Adı (yeni): ");
+                    String patientName = scanner.next();
+
+                    System.out.print("Soyadı (yeni): ");
+                    String patientSurname = scanner.next();
+
+                    System.out.print("Poliklinik (yeni): ");
+                    String polyclinicName = scanner.next();
+
+                    System.out.print("Randevu tarihi (yeni): ");
+                    String appDate = scanner.next();
+
+                    System.out.print("Başlangıç saati: ");
+                    String startTime = scanner.next();
+
+                    System.out.print("Bitiş saati: ");
+                    String endTime = scanner.next();
+
+                    willUpdatedAppointment.setPatientName(patientName);
+                    willUpdatedAppointment.setPatientSurname(patientSurname);
+                    willUpdatedAppointment.setPolyclinicName(polyclinicName);
+                    willUpdatedAppointment.setAppDate(appDate);;
+                    willUpdatedAppointment.setStartTime(startTime);
+                    willUpdatedAppointment.setEndTime(endTime);
+
+                    AppointmentOperations.updateAppointment(appId, willUpdatedAppointment);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
         scanner.close();

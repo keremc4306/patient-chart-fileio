@@ -6,12 +6,12 @@ public class Appointment {
     private String patientName;
     private String patientSurname;
     private String polyclinicName;
-    private LocalDate appDate;
-    private LocalTime startTime;
-    private LocalTime endTime;
+    private String appDate;
+    private String startTime;
+    private String endTime;
 
     public Appointment(int appId, String patientName, String patientSurname, String polyclinicName,
-                       LocalDate appDate, LocalTime startTime, LocalTime endTime) {
+                       String appDate, String startTime, String endTime) {
         this.appId = appId;
         this.patientName = patientName;
         this.patientSurname = patientSurname;
@@ -53,27 +53,27 @@ public class Appointment {
         this.polyclinicName = polyclinicName;
     }
 
-    public LocalDate getAppDate() {
+    public String getAppDate() {
         return appDate;
     }
 
-    public void setAppDate(LocalDate appDate) {
+    public void setAppDate(String appDate) {
         this.appDate = appDate;
     }
 
-    public LocalTime getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(LocalTime startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public LocalTime getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalTime endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
